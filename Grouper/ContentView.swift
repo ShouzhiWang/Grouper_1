@@ -10,15 +10,18 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        
-        Image("introduction_V1").resizable(resizingMode: .stretch).ignoresSafeArea()
+        Text("hello world")
+        //Image("introduction_V1").resizable(resizingMode: .stretch).ignoresSafeArea()
             
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+            ContentView()
+        }
             
     }
 }
