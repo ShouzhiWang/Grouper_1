@@ -3,7 +3,7 @@
     {
       "color" : {
         "platform" : "osx",
-        "reference" : "selectedControlColor"
+        "reference" : "controlAccentColor"
       },
       "idiom" : "universal"
     }
