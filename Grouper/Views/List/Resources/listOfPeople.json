@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "name": "TestStudent1",
+        "group": "class1",
+        "role": "student",
+        "isFeatured": true,
+        "description": "TEST TEST TEST This is not a real student, just for testing the app.",
+        "imageName": "default"
+    }    
+]
