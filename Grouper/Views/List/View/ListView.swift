@@ -26,20 +26,28 @@ struct ListView: View {
                                 .frame(width: 20.0)
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color("D_Elements"))
+//                                .overlay(
+//                                    Image(systemName: "questionmark.square")
+//                                    VStack {
+//
+//                                            .padding(.bottom, 8.0)
+//                                            .font(.system(size: 50))
+//
+//                                        Text("About")
+//                                            .font(.title2)
+//                                            .fontWeight(.semibold)
+//                                            .multilineTextAlignment(.center)
+//                                    }
+//)
+                                .frame(height: 90.0)
                                 .overlay(
-                                    VStack {
-                                        Image(systemName: "questionmark.square")
-                                            .padding(.bottom, 8.0)
+                                    VStack{
+                                        Image(systemName: "plus.square")
                                             .font(.system(size: 50))
-
-                                        Text("About")
-                                            .font(.title2)
-                                            .fontWeight(.semibold)
-                                            .multilineTextAlignment(.center)
+                                            .foregroundColor(Color("ButtonColor"))
                                     }
-                                    )
-                                .frame(height: 80.0)
-                                
+                                    
+                                )
                             //Spacer()
                                // .frame(width: 15.0)
                             Spacer()
@@ -47,7 +55,15 @@ struct ListView: View {
                             
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color("D_Elements"))
-                                .frame(height: 80.0)
+                                .frame(height: 90.0)
+                                .overlay(
+                                    VStack{
+                                        Image(systemName: "text.badge.plus")
+                                            .font(.system(size: 50))
+                                            .foregroundColor(Color("ButtonColor"))
+                                    }
+                                    
+                                )
                             
                             Spacer()
                                 .frame(width: 20.0)
@@ -58,16 +74,32 @@ struct ListView: View {
                                 .frame(width: 20.0)
                             
                             
-                            RoundedRectangle(cornerRadius: 20)
+                            RoundedRectangle(cornerRadius: 10)
                                 .fill(Color("D_Elements"))
-                                .frame(height: 80.0)
+                                .frame(height: 90.0)
+                                .overlay(
+                                    VStack{
+                                        Image(systemName: "square.and.pencil")
+                                            .font(.system(size: 50))
+                                            .foregroundColor(Color("ButtonColor"))
+                                    }
+                                    
+                                )
                             
                             Spacer()
                                 
                             
-                            RoundedRectangle(cornerRadius: 20)
+                            RoundedRectangle(cornerRadius: 10)
                                 .fill(Color("D_Elements"))
-                                .frame(height: 80.0)
+                                .frame(height: 90.0)
+                                .overlay(
+                                    VStack{
+                                        Image(systemName: "magnifyingglass")
+                                            .font(.system(size: 50))
+                                            .foregroundColor(Color("ButtonColor"))
+                                    }
+                                    
+                                )
                             
                             Spacer()
                                 .frame(width: 20.0)
