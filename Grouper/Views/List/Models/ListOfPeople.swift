@@ -19,7 +19,7 @@ struct ContactList: Hashable, Codable, Identifiable {
     
     private var imageName: String
     var image: Image {
-        if imageName == "Default" {
+        if imageName == "default" {
             return Image(systemName: "person.circle")
         }
         else {

@@ -7,5 +7,14 @@
         "isFeatured": true,
         "description": "TEST TEST TEST This is not a real student, just for testing the app.",
         "imageName": "default"
-    }    
+    },
+    {
+        "id": 2,
+        "name": "TestStudent2",
+        "group": "class2",
+        "role": "student",
+        "isFeatured": true,
+        "description": "222TEST TEST TEST This is not a real student, just for testing the app.",
+        "imageName": "default"
+    }
 ]

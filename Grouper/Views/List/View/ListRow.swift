@@ -19,12 +19,13 @@ struct ListRow: View {
 
                        Spacer()
         }
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
     }
 }
 
 struct ListRow_Previews: PreviewProvider {
     static var previews: some View {
         ListRow(listofpeople: peoples[0])
+            .previewLayout(.fixed(width: 300, height: 70))
     }
 }

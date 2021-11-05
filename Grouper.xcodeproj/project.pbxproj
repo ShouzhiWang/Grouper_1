@@ -17,6 +17,9 @@
 		A1687F8827287DBD006494E6 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1687F8727287DBD006494E6 /* ListView.swift */; };
 		A1687F8A27287DF3006494E6 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1687F8927287DF3006494E6 /* HistoryView.swift */; };
 		A1687F8C27287E44006494E6 /* UserSelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1687F8B27287E44006494E6 /* UserSelfView.swift */; };
+		A17A34362734BBFA00026543 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17A34352734BBFA00026543 /* CircleImage.swift */; };
+		A182971527345ABD0035FEA3 /* ListDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182971427345ABD0035FEA3 /* ListDetail.swift */; };
+		A182971727345B050035FEA3 /* AddNewPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182971627345B050035FEA3 /* AddNewPerson.swift */; };
 		A1E8D288272B14C30024F5F3 /* ListOfPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8D287272B14C20024F5F3 /* ListOfPeople.swift */; };
 		A1E8D28B272B185B0024F5F3 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8D28A272B185B0024F5F3 /* ListRow.swift */; };
 /* End PBXBuildFile section */
@@ -33,6 +36,9 @@
 		A1687F8727287DBD006494E6 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		A1687F8927287DF3006494E6 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		A1687F8B27287E44006494E6 /* UserSelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelfView.swift; sourceTree = "<group>"; };
+		A17A34352734BBFA00026543 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		A182971427345ABD0035FEA3 /* ListDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetail.swift; sourceTree = "<group>"; };
+		A182971627345B050035FEA3 /* AddNewPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPerson.swift; sourceTree = "<group>"; };
 		A1D4094E2726F913002F05E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A1E8D287272B14C20024F5F3 /* ListOfPeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfPeople.swift; sourceTree = "<group>"; };
 		A1E8D28A272B185B0024F5F3 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
@@ -99,6 +105,8 @@
 			children = (
 				A1E8D28A272B185B0024F5F3 /* ListRow.swift */,
 				A1687F8727287DBD006494E6 /* ListView.swift */,
+				A182971427345ABD0035FEA3 /* ListDetail.swift */,
+				A182971627345B050035FEA3 /* AddNewPerson.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -108,6 +116,7 @@
 			children = (
 				A1E8D287272B14C20024F5F3 /* ListOfPeople.swift */,
 				A15B62A72730404500DBAA3D /* ModelData.swift */,
+				A17A34352734BBFA00026543 /* CircleImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,12 +239,15 @@
 			files = (
 				A1687F8827287DBD006494E6 /* ListView.swift in Sources */,
 				A1687F8C27287E44006494E6 /* UserSelfView.swift in Sources */,
+				A182971727345B050035FEA3 /* AddNewPerson.swift in Sources */,
 				A15B62A82730404500DBAA3D /* ModelData.swift in Sources */,
 				A11EBA02271F367900ACD4FA /* ContentView.swift in Sources */,
+				A17A34362734BBFA00026543 /* CircleImage.swift in Sources */,
 				A1687F8A27287DF3006494E6 /* HistoryView.swift in Sources */,
 				A1E8D28B272B185B0024F5F3 /* ListRow.swift in Sources */,
 				A1687F8627287D42006494E6 /* DashboardView.swift in Sources */,
 				A1E8D288272B14C30024F5F3 /* ListOfPeople.swift in Sources */,
+				A182971527345ABD0035FEA3 /* ListDetail.swift in Sources */,
 				A11EBA00271F367900ACD4FA /* GrouperApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
