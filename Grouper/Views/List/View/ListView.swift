@@ -24,8 +24,36 @@ struct ListView: View {
                         HStack {
                             Spacer()
                                 .frame(width: 20.0)
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("D_Elements"))
+                            NavigationLink(destination: AddNewPerson(), label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(Color("D_Elements"))
+                                    
+                                        .overlay(
+                                            VStack{
+                                                Image(systemName: "plus.square")
+                                                    .font(.system(size: 50))
+                                                    .foregroundColor(Color("ButtonColor"))
+                                            }
+
+                                        )
+                                        .frame(height: 90)
+                                        
+                                    
+                                }
+//                                Image(systemName: "plus.square")
+//                                    .aspectRatio(contentMode: .fit)
+//                                    .frame(width: 90, height: 90.0)
+//                                    .background(Color("D_Elements"))
+//                                    .cornerRadius(10)
+//                                    .font(.system(size: 50))
+
+                                
+                        
+                            }
+                                           )
+//                            RoundedRectangle(cornerRadius: 10)
+//                                .fill(Color("D_Elements"))
 //                                .overlay(
 //                                    Image(systemName: "questionmark.square")
 //                                    VStack {
@@ -38,16 +66,17 @@ struct ListView: View {
 //                                            .fontWeight(.semibold)
 //                                            .multilineTextAlignment(.center)
 //                                    }
-//)
-                                .frame(height: 90.0)
-                                .overlay(
-                                    VStack{
-                                        Image(systemName: "plus.square")
-                                            .font(.system(size: 50))
-                                            .foregroundColor(Color("ButtonColor"))
-                                    }
-                                    
-                                )
+//)                                .frame(height: 90.0)
+//                                .overlay(
+//                                    VStack{
+//                                        Image(systemName: "plus.square")
+//                                            .font(.system(size: 50))
+//                                            .foregroundColor(Color("ButtonColor"))
+//                                    }
+//
+//                                )
+
+//                                }
                             //Spacer()
                                // .frame(width: 15.0)
                             Spacer()
