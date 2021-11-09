@@ -36,7 +36,7 @@ struct ContentView: View {
             
                 //.border("blue")
 
-            ListView()
+            ListView(listDM: ListDataManager())
                 .tabItem {
                     Label("List", systemImage: "person.crop.rectangle.stack")
                         }

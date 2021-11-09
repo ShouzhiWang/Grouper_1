@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ListView: View {
-    init() {
-        UITableView.appearance().backgroundColor = UIColor.clear
-    }
+    let listDM: ListDataManager
+    @State private var ppls: [People] = [People]()
+    
+//    init() {
+//        UITableView.appearance().backgroundColor = UIColor.clear
+//    }
     var body: some View {
         
         NavigationView {
@@ -24,7 +27,7 @@ struct ListView: View {
                         HStack {
                             Spacer()
                                 .frame(width: 20.0)
-                            NavigationLink(destination: AddNewPerson(), label: {
+                            NavigationLink(destination: AddNewPerson(listDM: listDM), label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 10)
                                         .fill(Color("D_Elements"))
@@ -134,14 +137,24 @@ struct ListView: View {
                                 .frame(width: 20.0)
                         }
                     }
+                    List(ppls, id: \.self) { person in
+                        HStack {
+                            Image(systemName: "person.circle")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                            Text(person.name ?? "")
+                            
+                        }
+                        
+                    }.background(Color.clear)
                     
-                    List{
-                        
-                        
-                        
-                        ForEach(peoples) { listofpeople in ListRow(listofpeople: listofpeople)
-                            }
-                    }
+//                    List{
+//
+//
+//
+//                        ForEach(peoples) { listofpeople in ListRow(listofpeople: listofpeople)
+//                            }
+//                    }
                         //ListRow(listofpeople: peoples[0])
                         //LandmarkRow(landmark: landmarks[1])
                             
@@ -150,7 +163,9 @@ struct ListView: View {
                 }
                 //Color("DashboardBackground").ignoresSafeArea()
                 .navigationTitle("List")
-                
+                .onAppear(perform: {
+                    ppls = listDM.getAllPeople()
+                })
             }
     
     }
@@ -159,7 +174,7 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        ListView(listDM: ListDataManager())
             
     }
 }

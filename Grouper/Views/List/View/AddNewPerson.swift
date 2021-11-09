@@ -10,6 +10,9 @@ import SwiftUI
 
 
 struct AddNewPerson: View {
+    
+    let listDM: ListDataManager
+    
     @State private var name: String = ""
     
     @State private var selectedRole: String = "Student"
@@ -18,17 +21,27 @@ struct AddNewPerson: View {
     
     @State private var selectedImportance: Bool = false
     
+    @State private var descriptionwritten: String = "Description"
+    
+    @State private var selectedpersonality: String = "Please Choose"
+    
+    
+    
+    //
+    
+    
     var Roles = ["Student", "Teacher", "Administrator"]
     var Groups = ["Please Choose...", "test1", "test2", "test3"]
     var isImportant = false
     
     private func addRow() {
-            print("a")
+        listDM.savePerson(name: name, role: selectedRole, group: selectedGroups, descrip: descriptionwritten, isimportant: selectedImportance, personality: selectedpersonality, picturen: "default")
     }
     
-    init() {
-        UITableView.appearance().backgroundColor = UIColor.clear
-    }
+//    init() {
+//        UITableView.appearance().backgroundColor = UIColor.clear
+//
+//    }
 //    enum Roles: String, CaseIterable {
 //        case student
 //        case teacher
@@ -36,6 +49,9 @@ struct AddNewPerson: View {
 //    }
     
     var body: some View {
+        
+        
+        
         ZStack{
             Color("ListColor")
                 .ignoresSafeArea()
@@ -73,13 +89,15 @@ struct AddNewPerson: View {
                     Toggle(isOn: $selectedImportance) {
                                         Text("Special Treatment")
                                     }
+                    
+                    
                     //Text("Selected flavor: \(selectedRole.rawValue)")
                     //HStack {
                         //Text("Name:")
                         
                     
                     //}
-                }
+                }.background(Color.clear)
                 
             } //Color.blue.edgesIgnoringSafeArea(.all)
             
@@ -107,6 +125,6 @@ struct AddNewPerson: View {
 
 struct AddNewPerson_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewPerson()
+        AddNewPerson(listDM: ListDataManager())
     }
 }
