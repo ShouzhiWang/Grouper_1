@@ -11,6 +11,8 @@ import SwiftUI
 
 struct AddNewPerson: View {
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     let listDM: ListDataManager
     
     @State private var name: String = ""
@@ -21,9 +23,9 @@ struct AddNewPerson: View {
     
     @State private var selectedImportance: Bool = false
     
-    @State private var descriptionwritten: String = "Description"
+    @State private var descriptionwritten: String = ""
     
-    @State private var selectedpersonality: String = "Please Choose"
+    @State private var selectedpersonality: String = "Optional..."
     
     
     
@@ -33,9 +35,11 @@ struct AddNewPerson: View {
     var Roles = ["Student", "Teacher", "Administrator"]
     var Groups = ["Please Choose...", "test1", "test2", "test3"]
     var isImportant = false
+    let Personalities = ["Optional...", "INFP", "ENFP", "INFJ", "ENFJ", "INTJ", "ENTJ", "INTP", "ENTP", "ISFP", "ISTP", "ESTP", "ISFJ", "ESFJ", "ISTJ", "ESTJ"]
     
     private func addRow() {
         listDM.savePerson(name: name, role: selectedRole, group: selectedGroups, descrip: descriptionwritten, isimportant: selectedImportance, personality: selectedpersonality, picturen: "default")
+        self.presentationMode.wrappedValue.dismiss()
     }
     
 //    init() {
@@ -78,6 +82,7 @@ struct AddNewPerson: View {
                         ForEach(Roles, id: \.self) {
                                             Text($0)
                                         }
+                        
                     }
                     
                     Picker("Group", selection: $selectedGroups) {
@@ -86,10 +91,26 @@ struct AddNewPerson: View {
                                         }
                     }
                     
+                    Picker("Personality", selection: $selectedpersonality) {
+                        ForEach(Personalities, id: \.self) {
+                                            Text($0)
+                                        }
+                    }
+                    
                     Toggle(isOn: $selectedImportance) {
                                         Text("Special Treatment")
                                     }
-                    
+                    ZStack(alignment: .leading) {
+                        if descriptionwritten.isEmpty {
+                            Text("Description(Optional)")
+                                .foregroundColor(Color.gray)
+                                
+
+                        }
+                        
+                    TextEditor(text: $descriptionwritten)
+                            .foregroundColor(Color.black)
+                    }
                     
                     //Text("Selected flavor: \(selectedRole.rawValue)")
                     //HStack {

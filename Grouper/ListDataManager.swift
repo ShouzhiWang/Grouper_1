@@ -21,6 +21,19 @@ class ListDataManager {
         }
     }
     
+    func deletePerson(person: People) {
+        persistentContainer.viewContext.delete(person)
+        
+        do{
+            try persistentContainer.viewContext.save()
+        } catch {
+            persistentContainer.viewContext.rollback()
+            print("failed to save context \(error)")
+        }
+        
+        
+    }
+    
     func getAllPeople() -> [People] {
         let fetchRequest: NSFetchRequest<People> = People.fetchRequest()
         
