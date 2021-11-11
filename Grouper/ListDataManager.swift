@@ -21,6 +21,15 @@ class ListDataManager {
         }
     }
     
+    func updatePerson() {
+        do{
+            try persistentContainer.viewContext.save()
+        } catch {
+            persistentContainer.viewContext.rollback()
+            print("failed to save context \(error)")
+        }
+    }
+    
     func deletePerson(person: People) {
         persistentContainer.viewContext.delete(person)
         
@@ -44,14 +53,13 @@ class ListDataManager {
         }
     }
     
-    func savePerson(name: String, role: String, group: String, descrip: String, isimportant: Bool, personality: String, picturen: String) {
+    func savePerson(name: String, role: String, group: String, descrip: String, personality: String, picturen: String) {
         
         let people = People(context: persistentContainer.viewContext)
         people.name = name
         people.role = role
         people.group = group
         people.descrip = descrip
-        people.isimportant = isimportant
         people.personality = personality
         people.picturen = picturen
         

@@ -3,13 +3,12 @@
     <entity name="People" representedClassName="People" syncable="YES" codeGenerationType="class">
         <attribute name="descrip" optional="YES" attributeType="String"/>
         <attribute name="group" optional="YES" attributeType="String"/>
-        <attribute name="isimportant" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="personality" optional="YES" attributeType="String"/>
         <attribute name="picturen" attributeType="String"/>
         <attribute name="role" attributeType="String"/>
     </entity>
     <elements>
-        <element name="People" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="People" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>

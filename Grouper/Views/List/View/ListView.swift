@@ -12,7 +12,9 @@ struct ListView: View {
     
     @State private var ppls: [People] = [People]()
     
-    private func populateperson() {
+    @State private var needsrefresh: Bool = false
+    
+    func populateperson() {
         ppls = listDM.getAllPeople()
     }
     
@@ -145,19 +147,25 @@ struct ListView: View {
                     
                     List {
                         ForEach(ppls, id: \.self) { person in
-                            HStack {
-                                Image(systemName: "person.circle")
-                                    .resizable()
-                                    .frame(width: 50, height: 50)
-                                Text(person.name ?? "")
-                            }
+                            NavigationLink(destination: ListDetail(personsss: person, listDM: listDM, neeedsrefresh: $needsrefresh), label: {
+                                HStack {
+                                    Image(systemName: "person.circle")
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                    Text(person.name ?? "")
+                                }
+                            })
                             }.onDelete(perform: {indexSet in indexSet.forEach { index in
                                 let person = ppls[index]
                                 listDM.deletePerson(person: person)
                                 populateperson()
                                 //mamager
+                                    
                             
                             }}).background(Color.clear)
+                            
+                    }.listStyle(DefaultListStyle())
+                        .accentColor(needsrefresh ? .white: .black)
                     }
                     
 
@@ -184,7 +192,7 @@ struct ListView: View {
             }
     
     }
-    }
+
 }
 
 struct ListView_Previews: PreviewProvider {

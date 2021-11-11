@@ -21,7 +21,7 @@ struct AddNewPerson: View {
     
     @State private var selectedGroups: String = "Please Choose..."
     
-    @State private var selectedImportance: Bool = false
+    //@State private var selectedImportance: Bool = false
     
     @State private var descriptionwritten: String = ""
     
@@ -38,7 +38,7 @@ struct AddNewPerson: View {
     let Personalities = ["Optional...", "INFP", "ENFP", "INFJ", "ENFJ", "INTJ", "ENTJ", "INTP", "ENTP", "ISFP", "ISTP", "ESTP", "ISFJ", "ESFJ", "ISTJ", "ESTJ"]
     
     private func addRow() {
-        listDM.savePerson(name: name, role: selectedRole, group: selectedGroups, descrip: descriptionwritten, isimportant: selectedImportance, personality: selectedpersonality, picturen: "default")
+        listDM.savePerson(name: name, role: selectedRole, group: selectedGroups, descrip: descriptionwritten, personality: selectedpersonality, picturen: "default")
         self.presentationMode.wrappedValue.dismiss()
     }
     
@@ -97,9 +97,9 @@ struct AddNewPerson: View {
                                         }
                     }
                     
-                    Toggle(isOn: $selectedImportance) {
-                                        Text("Special Treatment")
-                                    }
+//                    Toggle(isOn: $selectedImportance) {
+//                                        Text("Special Treatment")
+//                                    }
                     ZStack(alignment: .leading) {
                         if descriptionwritten.isEmpty {
                             Text("Description(Optional)")
