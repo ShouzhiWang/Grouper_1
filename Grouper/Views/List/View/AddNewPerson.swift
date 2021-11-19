@@ -73,6 +73,7 @@ struct AddNewPerson: View {
                     )
                     .shadow(radius: 7)
                     .frame(width: 150.0, height: 150.0)
+                Spacer()
                 
                 List {
                     TextField("Name", text: $name)
