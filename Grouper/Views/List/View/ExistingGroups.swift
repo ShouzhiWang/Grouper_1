@@ -21,7 +21,6 @@ struct ExistingGroups: View {
     }
     
     var body: some View {
-        NavigationView {
             ZStack {
                 
                     
@@ -102,8 +101,9 @@ struct ExistingGroups: View {
             
             //Text("hello world")
             }
-        }
-        .navigationBarTitle("Manage Groups", displayMode: .inline)
+        
+        .navigationBarTitle("Manage Groups")
+        .navigationBarTitleDisplayMode(.inline)
         
         //.navigationBarHidden(true)
         .onAppear(perform: {
