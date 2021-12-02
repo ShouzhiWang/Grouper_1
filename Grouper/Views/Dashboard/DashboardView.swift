@@ -101,24 +101,32 @@ struct DashboardView: View {
                         HStack {
                             Spacer()
                                 .frame(width: 15.0)
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(Color("D_Elements"))
-                                .overlay(
-                                    VStack{
-                                        Image("Dice")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .padding(.horizontal, 30.0)
-                                            .padding(.bottom, 15)
-                                        Text("Random")
-                                            .font(.title2)
-                                            .fontWeight(.semibold)
-                                            .multilineTextAlignment(.center)
-                                            //.padding(.top, -10.0)
-                                    }
-                                    
+                            
+                            NavigationLink(destination: RandomUI(listDM: listDM), label: {
+                                    ZStack {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(Color("D_Elements"))
+                                        .overlay(
+                                            VStack{
+                                                Image("Dice")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .padding(.horizontal, 30.0)
+                                                    .padding(.bottom, 15)
+                                                Text("Random")
+                                                    .font(.title2)
+                                                    .fontWeight(.semibold)
+                                                    .multilineTextAlignment(.center)
+                                                    //.padding(.top, -10.0)
+                                            }
+                                            
 
-                                )
+                                        )
+                                    }
+                            }
+                                           )
+                                           
+                                           
                             Spacer()
                                 .frame(width: 15.0)
                             RoundedRectangle(cornerRadius: 20)

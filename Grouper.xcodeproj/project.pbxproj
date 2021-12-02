@@ -27,6 +27,9 @@
 		A1E8D28B272B185B0024F5F3 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E8D28A272B185B0024F5F3 /* ListRow.swift */; };
 		A1EACC1F2739A42400796C50 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1EACC1D2739A42300796C50 /* UserData.xcdatamodeld */; };
 		A1EACC212739A87700796C50 /* ListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EACC202739A87700796C50 /* ListDataManager.swift */; };
+		D11BF8CC275961A500479348 /* PersonalityGroupsUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF8CB275961A500479348 /* PersonalityGroupsUI.swift */; };
+		D11BF8CE2759640B00479348 /* RandomUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF8CD2759640B00479348 /* RandomUI.swift */; };
+		D11BF8D0275965F100479348 /* RandomGroupsUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BF8CF275965F000479348 /* RandomGroupsUI.swift */; };
 		D16F3DB02757EDC4008E351C /* PersonalityUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F3DAF2757EDC3008E351C /* PersonalityUI.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +56,9 @@
 		A1E8D28A272B185B0024F5F3 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		A1EACC1E2739A42300796C50 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		A1EACC202739A87700796C50 /* ListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataManager.swift; sourceTree = "<group>"; };
+		D11BF8CB275961A500479348 /* PersonalityGroupsUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityGroupsUI.swift; sourceTree = "<group>"; };
+		D11BF8CD2759640B00479348 /* RandomUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUI.swift; sourceTree = "<group>"; };
+		D11BF8CF275965F000479348 /* RandomGroupsUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGroupsUI.swift; sourceTree = "<group>"; };
 		D16F3DAF2757EDC3008E351C /* PersonalityUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,7 +165,10 @@
 			isa = PBXGroup;
 			children = (
 				D16F3DAF2757EDC3008E351C /* PersonalityUI.swift */,
+				D11BF8CB275961A500479348 /* PersonalityGroupsUI.swift */,
 				A1687F8527287D42006494E6 /* DashboardView.swift */,
+				D11BF8CD2759640B00479348 /* RandomUI.swift */,
+				D11BF8CF275965F000479348 /* RandomGroupsUI.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -271,12 +280,15 @@
 				A15B62A82730404500DBAA3D /* ModelData.swift in Sources */,
 				A11EBA02271F367900ACD4FA /* ContentView.swift in Sources */,
 				A17A34362734BBFA00026543 /* CircleImage.swift in Sources */,
+				D11BF8CC275961A500479348 /* PersonalityGroupsUI.swift in Sources */,
 				D16F3DB02757EDC4008E351C /* PersonalityUI.swift in Sources */,
 				A1687F8A27287DF3006494E6 /* HistoryView.swift in Sources */,
 				A1E8D28B272B185B0024F5F3 /* ListRow.swift in Sources */,
+				D11BF8CE2759640B00479348 /* RandomUI.swift in Sources */,
 				A1B6D9D7273EB44A0039D2A4 /* GroupDataManager.swift in Sources */,
 				A1B6D9D5273EB2230039D2A4 /* ExistingGroups.swift in Sources */,
 				A1B6D9D2273EA8150039D2A4 /* SearchBarView.swift in Sources */,
+				D11BF8D0275965F100479348 /* RandomGroupsUI.swift in Sources */,
 				A1687F8627287D42006494E6 /* DashboardView.swift in Sources */,
 				A1E8D288272B14C30024F5F3 /* ListOfPeople.swift in Sources */,
 				A182971527345ABD0035FEA3 /* ListDetail.swift in Sources */,
