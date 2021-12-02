@@ -9,10 +9,59 @@ import SwiftUI
 
 struct PersonalityUI: View {
     @State private var nump = 3
+    let listDM: ListDataManager
+    
+    @State private var ppls: [People] = [People]()
+    @State private var needsrefresh: Bool = false
+    @State var selections: [String] = []
+    
+    func populateperson() {
+        ppls = listDM.getAllPeople()
+    }
+    
     var body: some View {
         ZStack {
             VStack {
                 VStack {
+                    
+                    Stepper("People in every group", value: $nump, in: 2...9)
+                        .padding(.horizontal)
+                    Text("\(nump) per group")
+                        .foregroundColor(.accentColor)
+                    
+                }
+                
+                //Spacer()
+                
+                List {
+                    ForEach(ppls, id: \.self) { person in
+                        MultipleSelectionRow(title: person.name ?? "", isSelected: self.selections.contains(person.name ?? "")) {
+                                            if self.selections.contains(person.name ?? "") {
+                                                self.selections.removeAll(where: { $0 == person.name ?? "" })
+                                            }
+                                            else {
+                                                self.selections.append(person.name ?? "")
+                                            }
+                                        }
+//                        HStack {
+//                            Image(systemName: "person.circle")
+//                                .resizable()
+//                                .frame(width: 50, height: 50)
+//                            Text(person.name ?? "")
+//                        }
+                        }
+                }
+                        
+                
+                .listStyle(DefaultListStyle())
+                    
+                    
+                
+                VStack {
+                    Text("Don't select anyone if you want to make groups for everyone")
+                        .font(.footnote)
+                        
+                    
                     Button("Make Groups") {
                         print("tapped")
                     
@@ -24,34 +73,50 @@ struct PersonalityUI: View {
                         .background(Color.blue)
                         .cornerRadius(17)
                     
-                    Stepper("People in every group", value: $nump, in: 2...9)
-                        .padding(.horizontal)
-                    Text("\(nump) per group")
-                        .foregroundColor(.accentColor)
+                    
                 }
                 
-                Spacer()
-                
-                
-                
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             }
             
         }
             
-            
-        
-        
-        
             //.navigationTitle("Make Groups By Personality")
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear(perform: {
+                ppls = listDM.getAllPeople()
+                
+            })
     }
         
     //.navigationBarTitle(Text("Title"), displayMode: .inline)
 }
 
+struct MultipleSelectionRow: View {
+    var title: String
+    var isSelected: Bool
+    var action: () -> Void
+
+    var body: some View {
+        
+        Button(action: self.action) {
+            HStack {
+                Image(systemName: "person.circle")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(Color(UIColor.darkText))
+                Text(title)
+                    .foregroundColor(Color(UIColor.darkText))
+                if self.isSelected {
+                    Spacer()
+                    Image(systemName: "checkmark")
+                }
+            }
+        }
+    }
+}
+
 struct PersonalityUI_Previews: PreviewProvider {
     static var previews: some View {
-        PersonalityUI()
+        PersonalityUI(listDM: ListDataManager())
     }
 }

@@ -183,7 +183,6 @@
 		A1E8D28F272B1A5C0024F5F3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D16F3DB12757EDE9008E351C /* Personality */,
 				A1B6D9D3273EB18C0039D2A4 /* Shared */,
 				A1E8D28D272B1A300024F5F3 /* Self */,
 				A1E8D289272B14D30024F5F3 /* List */,
@@ -191,13 +190,6 @@
 				A1E8D28E272B1A4B0024F5F3 /* History */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		D16F3DB12757EDE9008E351C /* Personality */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Personality;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -10,6 +10,10 @@ import SwiftUI
 
 
 struct DashboardView: View {
+    @State private var showAlert = false
+    @State private var showFeedback = false
+    @State private var showAbout = false
+    let listDM: ListDataManager
     var body: some View {
             NavigationView {
                 ZStack {
@@ -33,7 +37,7 @@ struct DashboardView: View {
                                 .frame(width: 15.0)
                             
                             
-                            NavigationLink(destination: PersonalityUI(), label: {
+                            NavigationLink(destination: PersonalityUI(listDM: listDM), label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 20)
                                         .fill(Color("D_Elements"))
@@ -48,6 +52,7 @@ struct DashboardView: View {
                                                     .font(.title2)
                                                     .fontWeight(.semibold)
                                                     .multilineTextAlignment(.center)
+                                                    .foregroundColor(Color(UIColor.darkText))
                                                     //.padding(.top, -10.0)
                                                 
                                             }
@@ -79,6 +84,14 @@ struct DashboardView: View {
                                         
                                     }
                                     )
+                                .onTapGesture {
+                                    showAlert = true
+                                }.alert(isPresented: $showAlert) {
+                                    Alert(
+                                        title: Text("Currently Not Available"),
+                                        message: Text("A function that is still developing \n will hopefully add in the next version" )
+                                    )
+                                }
                             Spacer()
                                 .frame(width: 15.0)
                                 
@@ -127,6 +140,7 @@ struct DashboardView: View {
                                     }
                                     )
                             
+                            
                             Spacer()
                                 .frame(width: 15.0)
                         
@@ -150,6 +164,14 @@ struct DashboardView: View {
                                             .multilineTextAlignment(.center)
                                     }
                                     )
+                                .onTapGesture {
+                                    showFeedback = true
+                                }.alert(isPresented: $showFeedback) {
+                                    Alert(
+                                        title: Text("Thank you for feedbacks"),
+                                        message: Text("Please send an email to swang@ves.org" )
+                                    )
+                                }
                                     
                                 .frame(height: 140.0)
                             Spacer()
@@ -168,6 +190,14 @@ struct DashboardView: View {
                                             .multilineTextAlignment(.center)
                                     }
                                     )
+                                .onTapGesture {
+                                    showAbout = true
+                                }.alert(isPresented: $showAbout) {
+                                    Alert(
+                                        title: Text("About"),
+                                        message: Text("Developed by Shawn Wang and Justin Wu \n Resources might came from the Internet")
+                                    )
+                                }
                                 .frame(height: 140.0)
                                 
                             Spacer()
@@ -198,7 +228,7 @@ struct DashboardView: View {
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        DashboardView()
+        DashboardView(listDM: ListDataManager())
             
             
     }

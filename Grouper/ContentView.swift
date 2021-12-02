@@ -21,7 +21,7 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selection) {
             
-            DashboardView()
+            DashboardView(listDM: ListDataManager())
                 .tabItem {
                     Label("Dashboard", systemImage: "speedometer")
                         }
