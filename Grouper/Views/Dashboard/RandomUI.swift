@@ -15,6 +15,8 @@ struct RandomUI: View {
     @State private var needsrefresh: Bool = false
     @State var selections: [String] = []
     
+    @State private var showingPopover = false
+    
     func populateperson() {
         ppls = listDM.getAllPeople()
     }
@@ -63,7 +65,7 @@ struct RandomUI: View {
                         
                     
                     Button("Make Groups") {
-                        print("tapped")
+                        showingPopover = true
                     
                     }
                         .frame(minWidth: 0, maxWidth: 330)
@@ -87,9 +89,23 @@ struct RandomUI: View {
                 
             })
     
+        .popover(isPresented: $showingPopover) {
+            navigationBarBackButtonHidden(false)
+            Text("Your content here")
+                .font(.headline)
+                .padding()
+                        
+
+//            NavigationLink(destination: DashboardView(listDM: listDM)) {
+//                Label("Done", systemImage: "folder")
+//            }
+//                
+                        
+   
         
     //.navigationBarTitle(Text("Title"), displayMode: .inline)
 }
+    }
 
     struct MultipleSelectionRow: View {
         var title: String
