@@ -90,22 +90,34 @@ struct RandomUI: View {
             })
     
         .popover(isPresented: $showingPopover) {
-            navigationBarBackButtonHidden(false)
-            Text("Your content here")
-                .font(.headline)
-                .padding()
+            //navigationBarBackButtonHidden(false)
+            NavigationView {
+                Text("Your content here")
+                    .font(.headline)
+                    .padding()
+                    
+                    .toolbar {
+                        Button("Done") {
+                            showingPopover = false
+                        }
+                        
+                        
+                    }
+            }
+            }
+            
                         
 
 //            NavigationLink(destination: DashboardView(listDM: listDM)) {
 //                Label("Done", systemImage: "folder")
 //            }
-//                
+//
                         
    
         
     //.navigationBarTitle(Text("Title"), displayMode: .inline)
 }
-    }
+
 
     struct MultipleSelectionRow: View {
         var title: String
