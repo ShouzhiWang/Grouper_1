@@ -42,7 +42,7 @@ struct ContentView: View {
                         }
                 .tag(Tab.list)
             
-            HistoryView()
+            HistoryView(historyDM: HistoryDataManager())
                 .tabItem {
                     Label("History", systemImage: "clock.arrow.circlepath")
                         }

@@ -52,7 +52,7 @@ struct DashboardView: View {
                                                     .font(.title2)
                                                     .fontWeight(.semibold)
                                                     .multilineTextAlignment(.center)
-                                                    .foregroundColor(Color(UIColor.darkText))
+                                                    .foregroundColor(Color("txtcolor"))
                                                     //.padding(.top, -10.0)
                                                 
                                             }
@@ -102,7 +102,7 @@ struct DashboardView: View {
                             Spacer()
                                 .frame(width: 15.0)
                             
-                            NavigationLink(destination: RandomUI(listDM: listDM), label: {
+                            NavigationLink(destination: RandomUI(listDM: listDM, historyDM: HistoryDataManager()), label: {
                                     ZStack {
                                     RoundedRectangle(cornerRadius: 20)
                                         .fill(Color("D_Elements"))
@@ -117,6 +117,7 @@ struct DashboardView: View {
                                                     .font(.title2)
                                                     .fontWeight(.semibold)
                                                     .multilineTextAlignment(.center)
+                                                    .foregroundColor(Color("txtcolor"))
                                                     //.padding(.top, -10.0)
                                             }
                                             

@@ -16,7 +16,7 @@ struct SearchBarView: View {
                     TextField("Search ...", text: $text)
                         .padding(7)
                         //.padding(.horizontal, 25)
-                        .background(Color.white)
+                        .background(Color("srhbarColor"))
                         .cornerRadius(8)
                         .padding(.horizontal, 10)
                         .onTapGesture {

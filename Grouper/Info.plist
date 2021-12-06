@@ -8,6 +8,8 @@
 		<string>LaunchscreenMode</string>
 		<key>UIImageName</key>
 		<string>introduction_V1</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<false/>
 		<key>UILaunchScreen</key>
 		<dict/>
 	</dict>
