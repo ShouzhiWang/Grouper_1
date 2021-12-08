@@ -37,7 +37,7 @@ struct DashboardView: View {
                                 .frame(width: 15.0)
                             
                             
-                            NavigationLink(destination: PersonalityUI(listDM: listDM), label: {
+                            NavigationLink(destination: PersonalityUI(listDM: listDM, historyDM: HistoryDataManager()), label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 20)
                                         .fill(Color("D_Elements"))
