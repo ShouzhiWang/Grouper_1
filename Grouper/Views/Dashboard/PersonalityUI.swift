@@ -18,6 +18,7 @@ struct PersonalityUI: View {
     @State var selections: [String] = []
     @State var compgroups: [String] = []
     @State private var showAbout = false
+    @State private var templabel: [String] = []
     
     @State private var showingPopover = false
     
@@ -40,6 +41,7 @@ struct PersonalityUI: View {
         for p in pdata {
             if p.personality == "INFP" || p.personality == "ENFP" || p.personality == "INFJ" || p.personality == "ENFJ" {
                 pConflict.append(p.name!)
+                
             }
             else if p.personality == "Optional..." {
                 pOptional.append(p.name!)
@@ -50,8 +52,11 @@ struct PersonalityUI: View {
         }
         
         pConflict.shuffle()
+        
         pOptional.shuffle()
+        
         pElse.shuffle()
+        
         
         //pConflict
         while pConflict.count >= pInGroup {
@@ -66,15 +71,7 @@ struct PersonalityUI: View {
             pConflict.removeSubrange(subrange)
             
         }
-        if pConflict.count < pInGroup && pConflict.count != 0 {
-            
-            tempgroup = ""
-            for p in pConflict {
-                let tempg = p
-                tempgroup += "\(tempg)   "
-            }
-            pLeftover.append(tempgroup)
-        }
+        
         
         //pOptional
         while pOptional.count >= pInGroup {
@@ -88,15 +85,6 @@ struct PersonalityUI: View {
             
             pOptional.removeSubrange(subrange)
             
-        }
-        if pOptional.count < pInGroup && pOptional.count != 0 {
-            
-            tempgroup = ""
-            for p in pOptional {
-                let tempg = p
-                tempgroup += "\(tempg)   "
-            }
-            pLeftover.append(tempgroup)
         }
         
         //pElse
@@ -112,14 +100,33 @@ struct PersonalityUI: View {
             pElse.removeSubrange(subrange)
             
         }
+        
+        if pConflict.count < pInGroup && pConflict.count != 0 {
+            
+            //tempgroup = ""
+            for p in pConflict {
+                pLeftover.append(p)
+            }
+            
+        }
+        
+        if pOptional.count < pInGroup && pOptional.count != 0 {
+            
+            //tempgroup = ""
+            for p in pOptional {
+                pLeftover.append(p)
+            }
+            
+        }
+        
+        
         if pElse.count < pInGroup && pElse.count != 0 {
             
-            tempgroup = ""
+            //tempgroup = ""
             for p in pElse {
-                let tempg = p
-                tempgroup += "\(tempg)   "
+                pLeftover.append(p)
             }
-            pLeftover.append(tempgroup)
+            
         }
         
         
@@ -147,7 +154,7 @@ struct PersonalityUI: View {
         }
         
         
-        //historyDM.savePerson(igroup: String(nump), members: labels)
+        historyDM.savePerson(igroup: String(nump), members: labels)
         return labels
             
         }
@@ -171,11 +178,11 @@ struct PersonalityUI: View {
                         MultipleSelectionRow(title: person.name ?? "", isSelected: self.selections.contains(person.name ?? "")) {
                                             if self.selections.contains(person.name ?? "") {
                                                 self.selections.removeAll(where: { $0 == person.name ?? "" })
-                                                self.pSelection.removeAll(where: { $0 == person})
+                                                
                                             }
                                             else {
                                                 self.selections.append(person.name ?? "")
-                                                self.pSelection.append(person)
+                                                
                                             }
                                         }
 //                        HStack {
@@ -199,11 +206,27 @@ struct PersonalityUI: View {
                     
                     Button("Make Groups") {
                         if selections.isEmpty {
-                            pSelection = ppls
+                            pSelection = []
+                            for p in ppls {
+                                pSelection.append(p)
+                                
+                            }
+                            templabel = mrgroups(pInGroup: nump, pdata: pSelection)
+                            
                             showingPopover = true
                            //showAbout = true
                         }
                         else {
+                            pSelection = []
+                            for a in selections {
+                                for p in ppls {
+                                    if a.contains(p.name!) {
+                                        pSelection.append(p)
+                                    }
+                                }
+                            
+                            }
+                            templabel = mrgroups(pInGroup: nump, pdata: pSelection)
                             
                             showingPopover = true
                         }
@@ -240,19 +263,14 @@ struct PersonalityUI: View {
             //navigationBarBackButtonHidden(false)
             NavigationView {
                 VStack {
-                    List(mrgroups(pInGroup: nump, pdata: pSelection), id: \.self) { c in
-                        Text(c)
+                    //List(mrgroups(pInGroup: nump, pdata: pSelection), id: \.self) { c in
+                        //Text(c)
+                   /// }
+                    ///
+                    List(templabel, id: \.self) { t in
+                        Text(t)
                     }
-//                    List {
-//                        ForEach(compgroups, id:\.self) { pl in
-//                            Text(pl)
-//                        }
-                    
-                    
-                    
-//                    Text("Your content here")
-//                        .font(.headline)
-//                        .padding()
+
                 }
                 
                     
@@ -267,41 +285,10 @@ struct PersonalityUI: View {
             }
             
                         
-
-//            NavigationLink(destination: DashboardView(listDM: listDM)) {
-//                Label("Done", systemImage: "folder")
-//            }
-//
-                        
-   
-        
-    //.navigationBarTitle(Text("Title"), displayMode: .inline)
 }
 
 
-    struct MultipleSelectionRow: View {
-        var title: String
-        var isSelected: Bool
-        var action: () -> Void
-
-        var body: some View {
-            
-            Button(action: self.action) {
-                HStack {
-                    Image(systemName: "person.circle")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .foregroundColor(Color("txtcolor"))
-                    Text(title)
-                        .foregroundColor(Color("txtcolor"))
-                    if self.isSelected {
-                        Spacer()
-                        Image(systemName: "checkmark")
-                    }
-                }
-            }
-        }
-    }
+    
 }
         
 
@@ -318,9 +305,9 @@ struct MultipleSelectionRow: View {
                 Image(systemName: "person.circle")
                     .resizable()
                     .frame(width: 50, height: 50)
-                    .foregroundColor(Color(UIColor.darkText))
+                    .foregroundColor(Color("txtcolor"))
                 Text(title)
-                    .foregroundColor(Color(UIColor.darkText))
+                    .foregroundColor(Color("txtcolor"))
                 if self.isSelected {
                     Spacer()
                     Image(systemName: "checkmark")
@@ -329,6 +316,7 @@ struct MultipleSelectionRow: View {
         }
     }
 }
+
 
 struct PersonalityUI_Previews: PreviewProvider {
     static var previews: some View {
