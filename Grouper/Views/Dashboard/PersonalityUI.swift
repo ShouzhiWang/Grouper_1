@@ -22,6 +22,8 @@ struct PersonalityUI: View {
     
     @State private var showingPopover = false
     
+    
+    
     func populateperson() {
         ppls = listDM.getAllPeople()
     }
@@ -267,8 +269,10 @@ struct PersonalityUI: View {
                         //Text(c)
                    /// }
                     ///
-                    List(templabel, id: \.self) { t in
+                    List{
+                        ForEach(templabel, id: \.self) { t in
                         Text(t)
+                    }
                     }
 
                 }
