@@ -22,8 +22,7 @@ struct DashboardView: View {
                     VStack{
                         
                         
-                        //Text("Hello, World!")
-                        //Text("This is Planned for the Dashboard Page")
+
                         
                         HStack{
                             Spacer()
@@ -36,7 +35,7 @@ struct DashboardView: View {
                             Spacer()
                                 .frame(width: 15.0)
                             
-                            
+                            //navigation label to personality grouping page
                             NavigationLink(destination: PersonalityUI(listDM: listDM, historyDM: HistoryDataManager()), label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 20)
@@ -67,6 +66,7 @@ struct DashboardView: View {
                             Spacer()
                                 .frame(width: 15.0)
                             
+                            //Reserved label for future functions
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(Color("D_Elements"))
                                 .overlay(
@@ -102,6 +102,7 @@ struct DashboardView: View {
                             Spacer()
                                 .frame(width: 15.0)
                             
+                            //Navigation label to random groups making ui
                             NavigationLink(destination: RandomUI(listDM: listDM, historyDM: HistoryDataManager()), label: {
                                     ZStack {
                                     RoundedRectangle(cornerRadius: 20)
@@ -130,6 +131,8 @@ struct DashboardView: View {
                                            
                             Spacer()
                                 .frame(width: 15.0)
+                            
+                            //Reserved label for future functions
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(Color("D_Elements"))
                                 .overlay(
@@ -159,6 +162,7 @@ struct DashboardView: View {
                         HStack {
                             Spacer()
                                 .frame(width: 15.0)
+                            //feedback information button
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(Color("D_Elements"))
                                 .overlay(
@@ -175,6 +179,7 @@ struct DashboardView: View {
                                     )
                                 .onTapGesture {
                                     showFeedback = true
+                                    //alert showing feedback email
                                 }.alert(isPresented: $showFeedback) {
                                     Alert(
                                         title: Text("Thank you for feedbacks"),
@@ -185,6 +190,7 @@ struct DashboardView: View {
                                 .frame(height: 140.0)
                             Spacer()
                                 .frame(width: 15.0)
+                            //about alert button
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(Color("D_Elements"))
                                 .overlay(
@@ -201,10 +207,11 @@ struct DashboardView: View {
                                     )
                                 .onTapGesture {
                                     showAbout = true
+                                    //alert that shows information
                                 }.alert(isPresented: $showAbout) {
                                     Alert(
                                         title: Text("About"),
-                                        message: Text("Developed by Shawn Wang and Justin Wu \n Resources might came from the Internet")
+                                        message: Text("Developed by Shawn Wang \n Resources might came from the Internet")
                                     )
                                 }
                                 .frame(height: 140.0)
@@ -216,12 +223,9 @@ struct DashboardView: View {
                         Spacer()
                             .frame(height: 20.0)
                 }
-//
-//                .navigationTitle("Dashboard")
 
-            
                 
-            
+            // title of the page
                 }.navigationTitle(Text("Dashboard"))
                     .background(Color("DashboardBackground"))
             

@@ -29,8 +29,8 @@ struct PersonalityUI: View {
     }
     
     func mrgroups(pInGroup: Int, pdata: [People]) -> [String] {
-        //make random groups
-        //var peopleingroup = plist
+        //make groups according to personality
+        
         var labels:[String] = []
         var pConflict:[String] = []
         var pOptional:[String] = []
@@ -173,7 +173,7 @@ struct PersonalityUI: View {
                     
                 }
                 
-                //Spacer()
+                
                 
                 List {
                     ForEach(ppls, id: \.self) { person in
@@ -187,12 +187,8 @@ struct PersonalityUI: View {
                                                 
                                             }
                                         }
-//                        HStack {
-//                            Image(systemName: "person.circle")
-//                                .resizable()
-//                                .frame(width: 50, height: 50)
-//                            Text(person.name ?? "")
-//                        }
+
+
                         }
                 }
                         
